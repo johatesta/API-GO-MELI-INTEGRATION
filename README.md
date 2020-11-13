@@ -1,6 +1,12 @@
 INTEGRACION DE MERCADO LIBRE PARA LABOROTARIO 3 DE LA UBP
 =========================================================
+
+
 Esto es un proyectp que se lleva a cabo con el lenguaje de programacion go que consiste consumir los servicios que brinda mercado libre a traves de su api
+
+
+
+
 Comenzando 🚀
 ==============
 Para empezar a trabajar con la api a traves de la terminal de go podes usar el comando go get -u 
