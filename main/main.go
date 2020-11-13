@@ -14,7 +14,7 @@ type answerOut struct {
 	Status string `json:"status"`
 }
 
-func AnswerQuestion(c *gin.Context)  {
+func PostAnswer(c *gin.Context)  {
 	token := c.Query("token")
  	var url string = "https://api.mercadolibre.com/answers?access_token=" + token
 	resp, err :=http.Post(url, "application/json", c.Request.Body)
@@ -44,7 +44,7 @@ type Respuesta struct{
 
 }
 
-func Auth(c *gin.Context){
+func GetToken(c *gin.Context){
 	code := c.Query("code")
 	client := http.Client{}
  	requestBody, _ := json.Marshal(map[string]string{
@@ -180,7 +180,7 @@ type ResponseCarrier struct{
 	Sales []SalesCarrier
 }
 
-func ItemsAll(c *gin.Context) {
+func GetItems(c *gin.Context) {
 	token := c.Query("token")
 	userid := c.Query("userid")
 	var url string = "https://api.mercadolibre.com/users/" + userid + "/items/search?access_token=" + token
@@ -275,9 +275,9 @@ func getAndMarshall(url string, res interface{}, c *gin.Context)  {
 }
 func main (){
   router := gin.Default()
-	router.GET("/auth",Auth)
-	router.GET("/items/all",ItemsAll)
-	//router.POST("/items/publish", PublishItem)
-	router.POST("/items/questions/ans",AnswerQuestion)
+	router.GET("/auth",GetToken)
+	router.GET("/items/all",GetItems)
+	//router.POST("/items/publish", PostItem)
+	router.POST("/items/questions/answer",PostAnswer)
 	router.Run()
 }
