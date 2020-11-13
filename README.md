@@ -21,7 +21,7 @@ Mercado libre y la autenticacion 🔧
 Al iniciar el flujo de autorización, la aplicación que desarrolles deberá redireccionar a Mercado Libre para que los usuarios puedan autenticarse y posteriormente autorizar tu aplicación. En el navegador ingresa la siguiente dirección:
 https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=$APP_ID&redirect_uri=$YOUR_URL
 
-EN ESTE CASO NUESTRA URL QUEDARÍA DE LA SIGUIENTE MANERA: https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=5291933962243912&redirect_uri="http://localhost:8080/auth
+EN ESTE CASO NUESTRA URL QUEDARÍA DE LA SIGUIENTE MANERA: https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=5291933962243912&redirect_uri=http://localhost:8080/auth
 
 Al poner esta url en nuestro navegador nos devolverá otra url con un codigo: http://localhost:8080/auth?code=TG-5faeb662a8096e0007167cd4-398763624
 y un archivo en formato JSON que nos dará el token de acceso y el id de usuario con el que trabajaremos para acceder a los demas recursos que nos brinda la api de MercadoLibre
