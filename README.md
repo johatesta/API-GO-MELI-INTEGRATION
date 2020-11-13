@@ -1,5 +1,5 @@
-INTEGRACION DE MERCADO LIBRE PARA LABOROTARIO 3 DE LA UBP
-=========================================================
+INTEGRACION DE MERCADO LIBRE PARA LABOROTARIO 3 DE LA UBP - Johana Testa
+========================================================================
 
 
 Esto es un proyectp que se lleva a cabo con el lenguaje de programacion go que consiste consumir los servicios que brinda mercado libre a traves de su api
