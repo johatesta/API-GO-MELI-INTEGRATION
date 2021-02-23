@@ -24,8 +24,8 @@ func Auth(c *gin.Context){
 	client := http.Client{}
  	requestBody, _ := json.Marshal(map[string]string{
 		"grant_type": "authorization_code",
-		"client_id" : "3589105139307129",
-		"client_secret": "knzqc1moyoKYFMlnHidSm7NlRMl16Dtj",
+		"client_id" : "5291933962243912",
+		"client_secret": "tnc3qX88LDPrWWXSMN3cL7OYd4L0y8Ta",
 		"code" : code,
 		"redirect_uri": "http://localhost:8080/auth",
 	})
