@@ -1,4 +1,5 @@
-{{ define "index.html" }}
+{{ define "stats.html" }}
+
 <html lang="en">
 
 <head>
@@ -9,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Home | Usuario: {{ .title }}</title>
+    <title>Estadisticas | Usuario: {{ .title }}</title>
 
     <!-- Custom fonts for this template-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
@@ -21,15 +22,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/4.1.3/css/sb-admin-2.css" rel="stylesheet">
 
 </head>
-<script>
 
-    var user = {{ .title }}
-
-    if( user === ""){
-        window.location.replace("http://localhost:8080/ingresar")
-    }
-
-</script>
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -39,7 +32,7 @@
     <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="http://localhost:8080/auth/code">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -50,8 +43,8 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="#">
+        <li class="nav-item ">
+            <a class="nav-link" href="http://localhost:8080/auth/code">
                 <i class="fas fa-fw fa-home"></i>
                 <span>Inicio</span></a>
         </li>
@@ -183,20 +176,20 @@
                              aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="#">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Perfil
+                                Profile
                             </a>
                             <a class="dropdown-item" href="#">
                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Ajustes
+                                Settings
                             </a>
                             <a class="dropdown-item" href="#">
                                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Historial
+                                Activity Log
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Salir
+                                Logout
                             </a>
                         </div>
                     </li>
@@ -208,19 +201,24 @@
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Datos Almacenados</h1>
+                </div>
+                <hr>
                 <!-- Content Row -->
                 <div class="row">
 
-                    <!-- Earnings (Monthly) Card Example -->
+                    <div id="Items"></div>
+
                     <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            Items Publicados</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ .itemCounter }}</div>
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Registros por Usuario</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ .Contador }}</div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -228,177 +226,59 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
-                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Cantidad de usuarios</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ .contadorUsers }}</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-warning shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                            Preguntas sin Responder</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ .PendingQuestions }}</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-comments fa-2x text-gray-300"></i>                                    </div>
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Productos nuevos</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ .NewProducts }}</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-info shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Productos Vendidos</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ .soldItemsCounter }}</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pending Requests Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-warning shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                            Pending Requests</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
-
-                <!-- Content Row -->
-
-                <div class="row">
-
-                    <!-- Area Chart -->
-                    <div class="col-xl-8 col-lg-7">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Ganancias Mensuales</h6>
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                         aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Dropdown Header:</div>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="myAreaChart"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pie Chart -->
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Items mas Vendidos</h6>
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                         aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Dropdown Header:</div>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-pie pt-4 pb-2">
-                                    <canvas id="myPieChart"></canvas>
-                                </div>
-                                <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Electrodomesticos
-                                        </span>
-                                    <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Accesorios
-                                        </span>
-                                    <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Herramientas
-                                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Content Row -->
-                <div class="row">
-
-                    <!-- Content Column -->
-                    <div class="col-lg-6 mb-4">
-
-                        <!-- Project Card Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h5 class="m-0 font-weight-bold text-primary">Uso de DB</h5>
-                                <h6 class="m-0 font-weight-bold text-primary">Uso de la DB por cada usuario</h6>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="small font-weight-bold">{{ .userName1 }} <span
-                                            class="float-right">{{  .userCount1  }}</span></h4>
-                                <div class="progress mb-4">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: {{  .userCount1  }}%"
-                                         aria-valuenow="{{  .userCount1  }}" aria-valuemin="0" aria-valuemax="10"></div>
-                                </div>
-                                <h4 class="small font-weight-bold"> {{ .userName2 }} <span
-                                            class="float-right">{{ .userCount2 }}</span></h4>
-                                <div class="progress mb-4">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: {{  .userCount2  }}%"
-                                         aria-valuenow="{{  .userCount2  }}" aria-valuemin="0" aria-valuemax="10"></div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
+                
             </div>
+            
             <!-- /.container-fluid -->
 
         </div>
         <!-- End of Main Content -->
 
         <!-- Footer -->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
@@ -444,12 +324,8 @@
 <!-- Page level plugins -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
-<!-- Page level plugins -->
-<script src="https://startbootstrap.github.io/startbootstrap-sb-admin-2/vendor/chart.js/Chart.min.js"></script>
+<script src="https://startbootstrap.github.io/startbootstrap-sb-admin-2/js/sb-admin-2.min.js"></script>
 
-<!-- Page level custom scripts -->
-<script src="https://startbootstrap.github.io/startbootstrap-sb-admin-2/js/demo/chart-area-demo.js"></script>
-<script src="https://startbootstrap.github.io/startbootstrap-sb-admin-2/js/demo/chart-pie-demo.js"></script>
 </body>
 
 </html>

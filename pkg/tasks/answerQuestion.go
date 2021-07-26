@@ -1,4 +1,4 @@
-package controller
+package tasks
 
 import (
 	"bytes"
@@ -11,18 +11,18 @@ import (
 )
 
 type AnswerFront struct {
-	Question_id string   `json:"question_id"`
-	Text string          `json:"text"`
+	Question_id string `json:"questionId"`
+	Text        string `json:"response"`
 }
 
 type AnswerMeli struct {
-	Question_id int64    `json:"question_id"`
-	Text string          `json:"text"`
+	Question_id int64  `json:"question_id"`
+	Text        string `json:"text"`
 }
 
 var AnswerToPost AnswerFront
 
-func AnswerQuestion( c* gin.Context ){
+func AnswerQuestion(c *gin.Context) {
 
 	bodyFront, err := ioutil.ReadAll(c.Request.Body)
 
@@ -33,25 +33,24 @@ func AnswerQuestion( c* gin.Context ){
 
 	answerToPost := string(bodyFront)
 
-	fmt.Println("lo que viene del front",answerToPost)
+	fmt.Println("AnswerFront: ", answerToPost)
 
 	json.Unmarshal(bodyFront, &AnswerToPost)
 
 	//AnswerToPost.id = answerToPost
 
 	fmt.Printf("%+v\n", AnswerToPost)
-	question_id, err :=strconv.ParseInt(AnswerToPost.Question_id, 10, 64)
+	question_id, err := strconv.ParseInt(AnswerToPost.Question_id, 10, 64)
 	answerQuestion := AnswerMeli{
-		Question_id : question_id,
-		Text: AnswerToPost.Text,
+		Question_id: question_id,
+		Text:        AnswerToPost.Text,
 	}
 
-	jsonAnswerQuestion,_ := json.Marshal(answerQuestion)
+	jsonAnswerQuestion, _ := json.Marshal(answerQuestion)
 
-	fmt.Println("json a mandar",string(jsonAnswerQuestion))
+	fmt.Println("JSON para MELI: ", string(jsonAnswerQuestion))
 
-
-	responseAnswerQuestion, err := http.Post("https://api.mercadolibre.com/answers?access_token=" + TokenR.Access_token, "application/json; application/x-www-form-urlencoded", bytes.NewBuffer(jsonAnswerQuestion))
+	responseAnswerQuestion, err := http.Post("https://api.mercadolibre.com/answers?access_token="+TokenR.Access_token, "application/json; application/x-www-form-urlencoded", bytes.NewBuffer(jsonAnswerQuestion))
 
 	if err != nil {
 		fmt.Errorf("Error", err.Error())
@@ -73,7 +72,5 @@ func AnswerQuestion( c* gin.Context ){
 
 	json.Unmarshal(response, &AnswerToPost)
 
-	c.JSON(200, AnswerToPost)
-
-
+	//c.JSON(200, AnswerToPost)
 }

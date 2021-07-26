@@ -1,9 +1,8 @@
-package router
-
+package server
 
 import (
-	"github.com/ProyectoLab3-master/pkg/tasks"
-	"github.com/gin-gonic/gin"
+	"tasks"
+	"github.com/gin-gonic/gin" 
 	"net/http"
 )
 

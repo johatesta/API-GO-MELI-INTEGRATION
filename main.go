@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/ProyectoLab3-master/pkg/server"
+	"LAB3/API-GO-MELI-INTEGRATION/router"
 )
 
 func main() {
