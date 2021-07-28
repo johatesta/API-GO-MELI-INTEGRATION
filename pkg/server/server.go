@@ -1,7 +1,7 @@
 package server
 
 import (
-	"tasks"
+	"github.com/johatesta/API-GO-MELI-INTEGRATION/pkg/tasks"
 	"github.com/gin-gonic/gin" 
 	"net/http"
 )
