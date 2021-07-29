@@ -44,16 +44,22 @@ Ejecutando las pruebas ⚙️
 SE UTILIZARON LOS SIGUIENTES USUARIOS PARA EJECUTAR PRUEBAS
 ============================================================
 
-USUARIO COMPRADOR 1
-{   "id": 798890199,
+USUARIO COMPRADOR1
+{  
+   
+   "id": 798890199,
     "nickname": "TT614680",
     "password": "qatest5397",
     "site_status": "active",
     "email": "test_user_91934992@testuser.com"
-}
     
-USUARIO COMPRADOR 2
+}
+
+    
+USUARIO COMPRADOR2
+
 {
+    
     "id": 798922756,
     "nickname": "TESTNF5WF7ZU",
     "password": "qatest6083",
