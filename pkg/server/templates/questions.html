@@ -306,9 +306,8 @@
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Preguntas en Publicaciiones</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i
-                                    class="fas fa-download fa-sm text-white-50"></i> Descargar</a>
+                        <h1 class="h3 mb-0 text-gray-800">Preguntas en Publicaciones</h1>
+                        
                     </div>
                     <hr>
                     <!-- Content Row -->
@@ -316,14 +315,14 @@
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <form class="contact-form">
                                 <div class="modal-dialog " role="document">
-                                    <div class="modal-content  text-white bg-dark">
-                                        <div class="modal-header text-white bg-dark">
+                                    <div class="modal-content  text-white bg-primary">
+                                        <div class="modal-header text-white bg-primary">
                                             <h5 class="modal-title" id="exampleModalLabel">Title</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body  text-white bg-dark">
+                                        <div class="modal-body  text-white bg-primary">
                                             <p id="questionTextField"></p>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -338,7 +337,7 @@
                                                 <input type="text" value="" name="questionId" id="questionId" class="questionId form-control ">
                                             </div>
                                         </div>
-                                        <div class="modal-footer  text-white bg-dark">
+                                        <div class="modal-footer  text-white bg-primary">
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                             <button type="submit" class="btn btn-success">Enviar Respuesta</button>
                                         </div>
@@ -361,7 +360,7 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                     </div>
                                     <div class="modal-body text-center">
-                                        <h4>Respuesta Enviada!</h4>
+                                        <h4>Respuesta Enviada</h4>
                                         <p>La Respuesta a la consulta fue enviada correctamente.</p>
                                         <a href="./auth/code" class="btn btn-success" ><span>Volver a Inicio</span> <i class="material-icons"></i></a>
                                     </div>
@@ -379,15 +378,15 @@
                                 console.log(cadena[i])
 
                                 let div = document.getElementById("Items");
-                                div.innerHTML += '<div class="card text-white bg-dark" width="100%">'
-                                    +  '<div class="card-header text-white bg-dark">'
+                                div.innerHTML += '<div class="card text-white bg-primary" width="100%">'
+                                    +  '<div class="card-header text-white bg-primary">'
                                     +    '<b>Producto: </b><p id="questionTitle">'+ cadena[i].Title
                                     +  '</p></div>'
                                     +  '<div class="card-body">'
                                     +    '<p class="card-text" id="questionText">'+ cadena[i].Question_text +'</p>'
                                     +    '<a data-title="'+ cadena[i].Title +'" data-text="'+ cadena[i].Question_text +'" data-id="'+ cadena[i].Id +'" class="open-AddBookDialog btn btn-success">Responder</a>'
                                     +  '</div>'
-                                    + '<div class="card-footer text-white bg-dark">'
+                                    + '<div class="card-footer text-white bg-primary">'
                                     +  'ID de Pregunta: <p id="questionId">' + cadena[i].Id
                                     +  ' </p></div>'
                                     + '</div><br>'
@@ -582,7 +581,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; JOHANA TESTA LAB 3 2020</span>
                     </div>
                 </div>
             </footer>
