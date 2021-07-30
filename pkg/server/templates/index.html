@@ -31,91 +31,46 @@
 
 </script>
 <body id="page-top">
-
-<!-- Page Wrapper -->
-<div id="wrapper">
-
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-warning sidebar sidebar-dark accordion" id="accordionSidebar">
-
-        <!-- Sidebar - Brand -->
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning"  >
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="http://localhost:8080/auth/code">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fab fa-rebel"></i>
             </div>
             <div class="sidebar-brand-text mx-3">Vendelibre </div>
         </a>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="#">
-                <i class="fas fa-fw fa-home"></i>
-                <span>Inicio</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Areas
-        </div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
-            <a class="nav-link" href="http://localhost:8080/questions">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Preguntas</span></a>
-        </li>
-
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
-            <a class="nav-link" href="http://localhost:8080/stats">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>Estadisticas</span></a>
-        </li>
-
-        <!-- Nav Item - Tables -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Productos</span></a>
-            </a>
-            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="http://localhost:8080/items">Publicaciones</a>
-                    <a class="collapse-item" href="http://localhost:8080/ventas">Ventas</a>
-                    <a class="collapse-item" href="http://localhost:8080/crear"> Crear Publicacion</a>
-
-                </div>
-            </div>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
-
-        <!-- Sidebar Toggler (Sidebar) -->
-        <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/questions">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Preguntas</span></a>
+            </li>
+    
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/stats">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Movimientos BD</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Productos
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item"  href="http://localhost:8080/items">Publicaciones</a>
+                <a class="dropdown-item" href="http://localhost:8080/ventas">Ventas</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="http://localhost:8080/crear"> Crear Publicacion</a>
+              </div>
+            </li>
+    
+              </ul>
+           
 
 
-
-    </ul>
-    <!-- End of Sidebar -->
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-        <!-- Main Content -->
-        <div id="content">
-
-            <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+              <nav class="navbar navbar-expand-lg navbar-light bg-warning">
 
                 <!-- Sidebar Toggle (Topbar) -->
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -174,7 +129,7 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ .title }}</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Bienvenido, {{ .title }}</span>
                             <img class="img-profile rounded-circle"
                                  src="https://www.materialui.co/materialIcons/action/account_circle_black_108x108.png">
                         </a>
@@ -204,6 +159,20 @@
                 </ul>
 
             </nav>
+            <!-- End of Topbar -->
+
+              
+            <!-- <a class="collapse-item" href="http://localhost:8080/items">Publicaciones</a>
+                    <a class="collapse-item" href="http://localhost:8080/ventas">Ventas</a>
+                    <a class="collapse-item" href="http://localhost:8080/crear"> Crear Publicacion</a>
+-->
+           
+        </div>
+      </nav>
+<!-- Page Wrapper -->
+<br>
+<br>
+    
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
@@ -264,22 +233,7 @@
                     </div>
 
                     <!-- Pending Requests Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-light shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                            Pending Requests</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
 
                 <!-- Content Row -->
@@ -356,12 +310,12 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Quiere cerrar sesion?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Se va tan pronto :C</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Toque en el Boton "Salir" para cerrar sesion en MercadoLibre y la plataforma NetSpace. Sera redireccionado a la pagina de Ingreso.</div>
+            <div class="modal-body">Si toca el boton "Salir"  cerrara sesion en MercadoLibre  y en la plataforma y sera redireccionado a la pagina de Inicio de sesion.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                 <a class="btn btn-danger" href="http://localhost:8080/ingresar">Salir</a>
